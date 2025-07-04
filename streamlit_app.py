@@ -45,9 +45,16 @@ try:
         df = df.rename(columns={"concentration": "농도"})
     if "temperature" in df.columns:
         df = df.rename(columns={"temperature": "온도"})
-    # 그래프
+
+    # 온도·농도 두 그래프 나란히 표시
     if "농도" in df.columns and "온도" in df.columns:
-        st.line_chart(df[["농도", "온도"]])
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("농도(%) 변화 그래프")
+            st.line_chart(df[["농도"]])
+        with col2:
+            st.subheader("온도(℃) 변화 그래프")
+            st.line_chart(df[["온도"]])
     else:
         st.warning(f"데이터에 '농도', '온도' 컬럼이 없습니다: {df.columns.tolist()}")
 except Exception as e:
