@@ -22,7 +22,7 @@ creds = Credentials.from_service_account_info(SERVICE_ACCOUNT, scopes=scope)
 gc = gspread.authorize(creds)
 
 SHEET_NAME = "cm31p_sensor_log"  # 구글 시트 이름
-WORKSHEET = "Sheet1"             # 워크시트명 (Sheet1)
+WORKSHEET = "시트1"             # 워크시트명 (Sheet1)
 
 # --- 시트 데이터 불러오기 함수 ---
 def fetch_sheet():
